@@ -52,7 +52,23 @@ public class ArtsmiaController {
 
 	@FXML
 	void doCalcolaComponenteConnessa(ActionEvent event) {
-		txtResult.setText("doCalcolaComponenteConnessa");
+		String inserita = txtObjectId.getText();
+		int idOggetto;
+		try {
+			idOggetto = Integer.parseInt(inserita);
+		} catch (NumberFormatException e) {
+			txtResult.appendText("Inserire un numero intero valido\n");
+			return;
+		}
+
+		if (!model.isObjIdValid(idOggetto)) {
+			txtResult.appendText(String.format("Non esiste alcun oggetto con id=%d\n", idOggetto));
+			return ;
+		}
+		
+		int dimCC = model.calcolaDimensioneCC(idOggetto) ;
+		
+		txtResult.appendText(String.format("\nLa componente connessa che contiene il vertice %d ha %d vertici\n", idOggetto, dimCC));
 	}
 
 	@FXML
