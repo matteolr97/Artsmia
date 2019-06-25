@@ -39,7 +39,20 @@ public class Model {
 		System.out.println("VERTICI:\n"+graph.vertexSet().size());
 		System.out.println("ARCHI:"+graph.edgeSet().size());
 	}
-
+/*
+ * public void creaGrafo() {
+		listaOggetti = dao.listObjects(idMap);
+		Graphs.addAllVertices(grafo,idMap.values());
+		
+		listaCoppie = dao.listCoppie();
+		
+		for(Coppie c:listaCoppie) {
+			ArtObject source = idMap.get(c.getO1());
+			ArtObject fine = idMap.get(c.getO2());
+			Graphs.addEdge(grafo, source, fine, c.getPeso());
+		}
+	}
+ * */
 
 	public int getVertexSize() {
 		// TODO Auto-generated method stub
